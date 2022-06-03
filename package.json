@@ -2,7 +2,7 @@
   "name": "google-maps",
   "version": "0.0.0",
   "engines": {
-    "node": "16.x"
+    "node": ">= 10.13.0"
   },
   "scripts": {
     "ng": "ng",
