@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
   }
 
   async readmapfile(){
-    let url = "/assets/MapSheet.xlsx";
+    let url = "../assets/MapSheet.xlsx";
     let req = new XMLHttpRequest();
     req.open("GET", url, true);
     req.responseType = "arraybuffer";
