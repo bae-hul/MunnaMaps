@@ -36,6 +36,8 @@ export class AppComponent implements OnInit {
   occmarkers: marker[];
   gmarkers=[];
 
+  midloc:any;
+
   visiblenum: number;
   //private _router: Subscription;
   //End of Vars
@@ -55,10 +57,11 @@ export class AppComponent implements OnInit {
       console.log('loaded gmaps')
 
       const location = { lat: 8.506777777777778, lng: 	76.97308333333333 }
+      this.midloc = location;
 
       this.map = new google.maps.Map(document.getElementById("map"), {
         center: location,
-        zoom: 11,
+        zoom: 13,
         styles: styles
       })
 
@@ -74,16 +77,38 @@ export class AppComponent implements OnInit {
         // Set the position and title
       let mrker = new google.maps.Marker({
         position: latLng,
-        title: i.title
+        title: i.title,
+        animation: google.maps.Animation.DROP
         })
+
+        let infoWindow = new google.maps.InfoWindow();
+
+    //test on click
+    mrker.addListener("click", ((infoWindow) => { 
+        return() =>{
+        this.map.setZoom(15);
+        this.map.setCenter(mrker.getPosition() as google.maps.LatLng);
+        console.log(mrker.getTitle())
+
+        infoWindow.setContent("<b style='color:black'>"+mrker.getTitle()+"</b>");
+        infoWindow.open(this.map,mrker);
+      }
+    })(infoWindow));
+    
 
         // place marker in map
       mrker.setMap(this.map)
       
       this.gmarkers.push(mrker);
 
+      google.maps.event.addListener(this.map, "click", function(event) {
+        infoWindow.close();
+    });
+
       }
     })
+
+    
   }
   //Changes
 
@@ -3278,12 +3303,31 @@ export class AppComponent implements OnInit {
       title: i.title
       })
 
+      let infoWindow = new google.maps.InfoWindow();
+
+      mrkerz.addListener("click", ((infoWindow) => { 
+        return() =>{
+        this.map.setZoom(15);
+        this.map.setCenter(mrkerz.getPosition() as google.maps.LatLng);
+        console.log(mrkerz.getTitle())
+
+        infoWindow.setContent("<b style='color:black'>"+mrkerz.getTitle()+"</b>");
+        infoWindow.open(this.map,mrkerz);
+      }
+    })(infoWindow));
+
       // place marker in map
     mrkerz.setMap(this.map)
     
     this.gmarkers.push(mrkerz);
+    
+    google.maps.event.addListener(this.map, "click", function(event) {
+        infoWindow.close();
+    });
+
 
     }
+
   }
 
   testz(){
@@ -3341,7 +3385,7 @@ async activBut(i){
 }
 
 async activButa(i){
-  console.log(i);
+  //console.log(i);
     if (i==1)
     {
       var element = document.getElementById("togbuta1");
