@@ -65,8 +65,11 @@ $(function () {
         $('.switcher-wrap').toggleClass('active');
     });
     $('.color-switcher ul li').click(function () {
+
+        document.write("<base href='/docs/'");
+
         var color = $(this).attr('data-color');
-        $('#theme-color').attr("href", "css/" + color + ".css");
+        $('#theme-color').attr("href", "/css/" + color + ".css");
         $('.color-switcher ul li').removeClass('active');
         $(this).addClass('active');
     });
