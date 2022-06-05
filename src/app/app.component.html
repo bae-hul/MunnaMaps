@@ -1,10 +1,102 @@
+<div>
 <button id="All" (click)="testz()">All</button>
 <button id="Occ" (click)="viewOcc()">Occ</button>
 <button id="Avail" (click)="viewAvail()">Avail</button>
 
 <p id="numberdisp"></p>
-
-
-<div class="full" id="map">
-
 </div>
+
+<div>
+<div class="full" id="map"> </div>
+
+    <div id="menuoverlay" class="after" style="margin-left: auto; margin-right: 0; float: right;">
+        <div id="nav-icon2" class="after2" (click)="hamenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <br><br><br><br><br><br>
+      
+        <div class="op0" id="overlayop">
+          <div class="sectionz section-buttons">
+            <div class="container">
+                <div class="tim-title">
+                    <h2>Our Boards</h2>
+                </div>
+                <div id="buttons">
+                    <div class="row">
+                        <div class="col-sm-5">
+                          <div class="tim-title">
+                            <h3 style="color: black;">Sort By:
+                              <br/>
+                              <small>Status</small>
+                          </h3>
+                          </div>
+                            <button (click)="activButa(1)" id=togbuta1 type="button" class="btn btn-outline-info btn-round active">All Boards</button>
+                            <button (click)="activButa(2)" id=togbuta2 type="button" class="btn btn-outline-success btn-round">Available Boards</button>
+                            <button (click)="activButa(3)" id=togbuta3 type="button" class="btn btn-outline-danger btn-round">Occupied Boards</button>
+                        </div>
+                
+        
+                  
+                      <div class="col-sm-5">
+                        <div class="tim-title">
+                          <h3>
+                            <br/>
+                            <small>Type</small>
+                        </h3>
+                        </div>
+                          <button (click)="activBut(1)" id=togbut1 type="button" class="btn btn-outline-default btn-round active">All Types</button>
+                          <button (click)="activBut(2)" id=togbut2 type="button" class="btn btn-outline-primary btn-round">Hoarding Boards</button>
+                          <button (click)="activBut(3)" id=togbut3 type="button" class="btn btn-outline-warning btn-round">Unipole Boards</button>
+                      </div>
+                  </div>
+                </div>
+        
+                <div class="tim-title">
+                  <h3><small>Size (lxh)</small></h3>
+              </div>
+                <div class="row" style="padding-left: 20px">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Any
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="" checked="">
+                            120 (10x20)
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="" disabled="">
+                            120 (20x10)
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="" checked="" disabled="">
+                            Other
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                    
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+      
+      </div>
+</div>
+      
+

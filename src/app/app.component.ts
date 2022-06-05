@@ -3290,6 +3290,93 @@ export class AppComponent implements OnInit {
     console.log(this.markers.length);
   }
 
+  hamenu() {
+    var element = document.getElementById("nav-icon2");
+    element.classList.toggle("open");
+
+    var element = document.getElementById("menuoverlay");
+    element.classList.toggle("after1");
+
+    var element = document.getElementById("overlayop");
+    element.classList.toggle("op0");
+    element.classList.toggle("op100");
+
+}
+
+async activBut(i){
+  console.log(i);
+    if (i==1)
+    {
+      var element = document.getElementById("togbut1");
+      element.classList.add("active");
+
+      var element = document.getElementById("togbut2");
+      element.classList.remove("active");
+      var element = document.getElementById("togbut3");
+      element.classList.remove("active");
+      
+    }
+    else if (i==2)
+    {
+      var element = document.getElementById("togbut2");
+      element.classList.add("active");
+
+      var element = document.getElementById("togbut1");
+      element.classList.remove("active");
+      var element = document.getElementById("togbut3");
+      element.classList.remove("active");
+      
+    }
+    else if (i==3)
+    {
+      var element = document.getElementById("togbut3");
+      element.classList.add("active");
+
+      var element = document.getElementById("togbut1");
+      element.classList.remove("active");
+      var element = document.getElementById("togbut2");
+      element.classList.remove("active");
+      
+    }
+}
+
+async activButa(i){
+  console.log(i);
+    if (i==1)
+    {
+      var element = document.getElementById("togbuta1");
+      element.classList.add("active");
+
+      var element = document.getElementById("togbuta2");
+      element.classList.remove("active");
+      var element = document.getElementById("togbuta3");
+      element.classList.remove("active");
+      this.viewAll();
+    }
+    else if (i==2)
+    {
+      var element = document.getElementById("togbuta2");
+      element.classList.add("active");
+
+      var element = document.getElementById("togbuta1");
+      element.classList.remove("active");
+      var element = document.getElementById("togbuta3");
+      element.classList.remove("active");
+      this.viewAvail();
+    }
+    else if (i==3)
+    {
+      var element = document.getElementById("togbuta3");
+      element.classList.add("active");
+
+      var element = document.getElementById("togbuta1");
+      element.classList.remove("active");
+      var element = document.getElementById("togbuta2");
+      element.classList.remove("active");
+      this.viewOcc();
+    }
+}
+
 }
 
 interface marker {
