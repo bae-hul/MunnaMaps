@@ -1,6 +1,6 @@
 .full {
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
 }
 
 agm-map {
@@ -23,7 +23,7 @@ agm-map {
     top: 0;
     left: auto; 
     right: 0;
-    width: 25%;
+    width: 35%;
     height: 100%;
     display: none;
     color: #FFF;

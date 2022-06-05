@@ -1,12 +1,4 @@
 <div>
-<button id="All" (click)="testz()">All</button>
-<button id="Occ" (click)="viewOcc()">Occ</button>
-<button id="Avail" (click)="viewAvail()">Avail</button>
-
-<p id="numberdisp"></p>
-</div>
-
-<div>
 <div class="full" id="map"> </div>
 
     <div id="menuoverlay" class="after" style="margin-left: auto; margin-right: 0; float: right;">
@@ -30,28 +22,28 @@
                     <div class="row">
                         <div class="col-sm-5">
                           <div class="tim-title">
-                            <h3 style="color: black;">Sort By:
+                            <h3 style="color: aqua;">Sort By:
                               <br/>
                               <small>Status</small>
                           </h3>
                           </div>
-                            <button (click)="activButa(1)" id=togbuta1 type="button" class="btn btn-outline-info btn-round active">All Boards</button>
-                            <button (click)="activButa(2)" id=togbuta2 type="button" class="btn btn-outline-success btn-round">Available Boards</button>
-                            <button (click)="activButa(3)" id=togbuta3 type="button" class="btn btn-outline-danger btn-round">Occupied Boards</button>
+                            <button (click)="activButa(1)" style="margin:5px" id=togbuta1 type="button" class="btn btn-outline-info btn-round btn-sm active">All Boards</button>
+                            <button (click)="activButa(2)" style="margin:5px" id=togbuta2 type="button" class="btn btn-outline-success btn-sm btn-round">Available Boards</button>
+                            <button (click)="activButa(3)" style="margin:5px" id=togbuta3 type="button" class="btn btn-outline-danger btn-sm btn-round">Occupied Boards</button>
                         </div>
                 
         
                   
-                      <div class="col-sm-5">
+                      <div style="margin-left: 15px;" class="col-sm-5">
                         <div class="tim-title">
                           <h3>
                             <br/>
                             <small>Type</small>
                         </h3>
                         </div>
-                          <button (click)="activBut(1)" id=togbut1 type="button" class="btn btn-outline-default btn-round active">All Types</button>
-                          <button (click)="activBut(2)" id=togbut2 type="button" class="btn btn-outline-primary btn-round">Hoarding Boards</button>
-                          <button (click)="activBut(3)" id=togbut3 type="button" class="btn btn-outline-warning btn-round">Unipole Boards</button>
+                          <button (click)="activBut(1)" style="margin:5px" id=togbut1 type="button" class="btn btn-outline-default btn-sm btn-round active">All Types</button>
+                          <button (click)="activBut(2)" style="margin:5px" id=togbut2 type="button" class="btn btn-outline-primary btn-sm btn-round">Hoarding Boards</button>
+                          <button (click)="activBut(3)" style="margin:5px" id=togbut3 type="button" class="btn btn-outline-warning btn-sm btn-round">Unipole Boards</button>
                       </div>
                   </div>
                 </div>
