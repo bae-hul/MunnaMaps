@@ -11,6 +11,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
+var gdialog;
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,14 @@ import { DialogExampleComponent } from './dialog-example/dialog-example.componen
 })
 export class AppComponent implements OnInit {
 
-    constructor(public dialog:MatDialog){}
+    constructor(public dialog:MatDialog){gdialog = this.dialog;}
     //dialog: MatDialog;
-    openDialog()
+    openDialog(dtext)
     {
         console.log("Inside open diag");
-        this.dialog.open(DialogExampleComponent);
+        gdialog.open(DialogExampleComponent,{
+            data: {name: dtext},
+        });
     }
 
   title = 'google-maps';
@@ -3476,5 +3479,5 @@ function infoFuncO(data)
 {
     console.log("Info Func Outside the class");
     console.log(data);
-    //openDialog();
+    AppComponent.prototype.openDialog(data);
 }
