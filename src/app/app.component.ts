@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
 import { styles } from './mapstyles';
 
+import * as $ from 'jquery';
+
 import * as XLSX from 'xlsx';
 import { TestBed } from '@angular/core/testing';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +40,10 @@ export class AppComponent implements OnInit {
   gmarkers=[];
 
   midloc:any;
+
+  checkthis = 1010;
+
+  tempmrker="";
 
   visiblenum: number;
   //private _router: Subscription;
@@ -89,8 +96,18 @@ export class AppComponent implements OnInit {
         this.map.setZoom(15);
         this.map.setCenter(mrker.getPosition() as google.maps.LatLng);
         console.log(mrker.getTitle())
+        this.tempmrker = mrker.getTitle();
 
-        infoWindow.setContent("<b style='color:black'>"+mrker.getTitle()+"</b>");
+        infoWindow.setContent("<div id='myInfoWinDiv'><b style='color:black'>"+mrker.getTitle()+"</b></div>");
+
+        google.maps.event.addListener(infoWindow,'domready',function(){
+            $('#myInfoWinDiv').click(function() {
+                console.log("The STKO works");
+                infoFuncO(infoWindow.getContent());
+                //console.log(this.checkthis);
+            });
+        });
+
         infoWindow.open(this.map,mrker);
       }
     })(infoWindow));
@@ -111,6 +128,13 @@ export class AppComponent implements OnInit {
     
   }
   //Changes
+
+  infoFunc(data)
+  {
+      console.log("Data from info window");
+      console.log(data);
+  }
+  
 
   async myFunc(){
     console.log("It Works.");
@@ -3432,3 +3456,9 @@ interface marker {
   visible?: boolean;
 }
 
+
+function infoFuncO(data)
+{
+    console.log("Info Func Outside the class");
+    console.log(data);
+}
