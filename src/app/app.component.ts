@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
   //Load Maps
   async loadMaps(){
     let loader = new Loader({
-      apiKey: 'AIzaSyBMGH91a04LI8u01RCVeoYvr4PNeVswbq8'
+      apiKey: 'AIzaSyC5dGJZs93eMbnWYrhPiTyWPesKby6VYpI'
     })
 
     loader.load().then(() => {
