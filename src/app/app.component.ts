@@ -8,12 +8,24 @@ import * as XLSX from 'xlsx';
 import { TestBed } from '@angular/core/testing';
 import { ThrowStmt } from '@angular/compiler';
 
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+    constructor(public dialog:MatDialog){}
+    //dialog: MatDialog;
+    openDialog()
+    {
+        console.log("Inside open diag");
+        this.dialog.open(DialogExampleComponent);
+    }
 
   title = 'google-maps';
 
@@ -104,6 +116,9 @@ export class AppComponent implements OnInit {
             $('#myInfoWinDiv').click(function() {
                 console.log("The STKO works");
                 infoFuncO(infoWindow.getContent());
+
+                //let AC:AppComponent = new AppComponent();
+
                 //console.log(this.checkthis);
             });
         });
@@ -3461,4 +3476,5 @@ function infoFuncO(data)
 {
     console.log("Info Func Outside the class");
     console.log(data);
+    //openDialog();
 }
