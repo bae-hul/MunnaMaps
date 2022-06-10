@@ -1,3 +1,23 @@
-<p>dialog-example works!</p>
+<div class="dialogbox">
+  <div class="cartbutton">
+    <span>
+      <button type="button" class="btn btn-outline-info" (click)="opened=!opened">Your List - (0)</button>
+    </span>
+  </div>
+<mat-sidenav-container>
 
-<b>{{data.name}}</b>
+    <mat-sidenav mode="side" [(opened)]="opened">
+      <h4>My List</h4>
+      <p>Currently empty! Please click the 'Add to List' button for the boards of your choice to see them here and request a final quote!</p>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <h3><b class="dialoghead">{{data.name}}</b></h3>
+      <p>Info on Board</p>
+      <br>
+      <p>Coknsjnsmjncdsjknsjknsjdcsncd</p>
+      <br>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+  </div>

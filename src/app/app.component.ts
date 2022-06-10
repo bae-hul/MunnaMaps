@@ -24,9 +24,10 @@ export class AppComponent implements OnInit {
     //dialog: MatDialog;
     openDialog(dtext)
     {
+        let stext = dtext.substring(46, dtext.length-10)
         console.log("Inside open diag");
         gdialog.open(DialogExampleComponent,{
-            data: {name: dtext},
+            data: {name: stext},
         });
     }
 
@@ -3335,6 +3336,8 @@ export class AppComponent implements OnInit {
 
   refreshMarkers()
   {
+    google.maps.event.clearListeners(this.map, 'click');
+
     for (let i of this.markers)
     {
       let latLng = {lat: Number(i.lat), lng: Number(i.lng)};
@@ -3352,8 +3355,21 @@ export class AppComponent implements OnInit {
         this.map.setZoom(15);
         this.map.setCenter(mrkerz.getPosition() as google.maps.LatLng);
         console.log(mrkerz.getTitle())
+        this.tempmrker = mrkerz.getTitle();
 
-        infoWindow.setContent("<b style='color:black'>"+mrkerz.getTitle()+"</b>");
+        infoWindow.setContent("<div id='myInfoWinDiv'><b style='color:black'>"+mrkerz.getTitle()+"</b></div>");
+
+        google.maps.event.addListener(infoWindow,'domready',function(){
+            $('#myInfoWinDiv').click(function() {
+                console.log("The STKO works");
+                infoFuncO(infoWindow.getContent());
+
+                //let AC:AppComponent = new AppComponent();
+
+                //console.log(this.checkthis);
+            });
+        });
+
         infoWindow.open(this.map,mrkerz);
       }
     })(infoWindow));

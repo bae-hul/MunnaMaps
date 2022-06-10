@@ -1,0 +1,25 @@
+.dialogbox{
+    background-color: black;
+}
+
+.dialoghead{
+    color: aquamarine;
+}
+
+.cartbutton{
+    padding: 10px;
+}
+
+mat-sidenav-container{
+    height:100;
+}
+
+mat-sidenav, mat-sidenav-content{
+    padding: 16px;
+    background-color: white;
+}
+
+mat-sidenav{
+    background-color: aquamarine;
+    width: 200px;
+}
