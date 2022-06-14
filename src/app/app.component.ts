@@ -68,6 +68,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.myFunc();
     this.loadMaps();
+
+    sessionStorage.setItem('myList',JSON.stringify([]));
   }
 
   //Load Maps

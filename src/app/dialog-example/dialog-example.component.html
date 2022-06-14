@@ -1,14 +1,22 @@
 <div class="dialogbox">
   <div class="cartbutton">
     <span>
-      <button type="button" class="btn btn-outline-info" (click)="opened=!opened">Your List - (0)</button>
+      <button type="button" class="btn btn-outline-info" (click)="opened=!opened">Your List - ({{this.myListLen}})</button>
     </span>
   </div>
 <mat-sidenav-container>
 
     <mat-sidenav mode="side" [(opened)]="opened">
       <h4>My List</h4>
-      <p>Currently empty! Please click the 'Add to List' button for the boards of your choice to see them here and request a final quote!</p>
+      <p>{{this.myListText}}</p>
+      <tbody>
+        <tr *ngFor="let employee of this.myList ">
+          <th scope="row">{{employee}}</th>
+        </tr>
+      </tbody>
+      <br>
+      <br>
+      <button (click)="clearMyList()">Clear MyList</button>
     </mat-sidenav>
   
     <mat-sidenav-content>
@@ -17,6 +25,8 @@
       <br>
       <p>Coknsjnsmjncdsjknsjknsjdcsncd</p>
       <br>
+      <button (click)="addToList(data.name)">Add To MyList</button>
+      <button (click)="removeFromList(data.name)">Remove From MyList</button>
     </mat-sidenav-content>
 
   </mat-sidenav-container>
