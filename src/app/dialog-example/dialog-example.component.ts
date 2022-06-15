@@ -4,7 +4,10 @@ import {Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faListAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dialog-example',
@@ -15,7 +18,11 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 export class DialogExampleComponent implements OnInit {
 
   opened = false;
-  faCoffee = faCoffee;
+  faPlusSquare = faPlusSquare;
+  faMinusSquare = faMinusSquare;
+  faListAlt = faListAlt;
+  faEraser = faEraser;
+  
 
   myList = JSON.parse(sessionStorage.getItem('myList'));
   myListLen = JSON.parse(sessionStorage.getItem('myList')).length;

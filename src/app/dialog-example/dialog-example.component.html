@@ -1,7 +1,7 @@
 <div class="dialogbox">
   <div class="cartbutton">
     <span>
-      <button type="button" class="btn btn-outline-info" (click)="opened=!opened">Your List - ({{this.myListLen}})</button>
+      <button type="button" class="btn btn-outline-info" (click)="opened=!opened"> <fa-icon [icon]="faListAlt"></fa-icon> Your List - ({{this.myListLen}})</button>
     </span>
   </div>
 <mat-sidenav-container>
@@ -16,7 +16,7 @@
       </tbody>
       <br>
       <br>
-      <button (click)="clearMyList()">Clear MyList</button>
+      <button (click)="clearMyList()" style="margin:5px" type="button" class="btn btn-outline-light btn-sm btn-round"> <fa-icon [icon]="faEraser"></fa-icon> Clear List</button>
     </mat-sidenav>
   
     <mat-sidenav-content>
@@ -25,9 +25,10 @@
       <br>
       <p>Coknsjnsmjncdsjknsjknsjdcsncd</p>
       <br>
-      <button (click)="addToList(data.name)">Add To MyList</button>
-      <button (click)="removeFromList(data.name)">Remove From MyList</button>
-      <fa-icon [icon]="faCoffee"></fa-icon>
+
+      <button (click)="addToList(data.name)" style="margin:5px" type="button" class="btn btn-outline-success btn-sm btn-round"> <fa-icon [icon]="faPlusSquare"></fa-icon> Add To List </button>
+      <button (click)="removeFromList(data.name)" style="margin:5px" type="button" class="btn btn-outline-danger btn-sm btn-round"> <fa-icon [icon]="faMinusSquare"></fa-icon> Remove From List </button>
+      
     </mat-sidenav-content>
 
   </mat-sidenav-container>
