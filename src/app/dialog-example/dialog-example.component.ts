@@ -4,6 +4,8 @@ import {Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-dialog-example',
   templateUrl: './dialog-example.component.html',
@@ -13,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 export class DialogExampleComponent implements OnInit {
 
   opened = false;
+  faCoffee = faCoffee;
 
   myList = JSON.parse(sessionStorage.getItem('myList'));
   myListLen = JSON.parse(sessionStorage.getItem('myList')).length;

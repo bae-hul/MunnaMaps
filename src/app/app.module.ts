@@ -8,6 +8,7 @@ import { DialogExampleComponent } from './dialog-example/dialog-example.componen
 import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatDialogModule,
     MatSidenavModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
