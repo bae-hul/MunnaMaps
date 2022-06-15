@@ -11,7 +11,9 @@ import { ThrowStmt } from '@angular/compiler';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
+
 var gdialog;
+var openIW = null;
 
 @Component({
   selector: 'app-root',
@@ -111,6 +113,11 @@ export class AppComponent implements OnInit {
     //test on click
     mrker.addListener("click", ((infoWindow) => { 
         return() =>{
+        
+        if (openIW!=null)
+        openIW.close();
+        openIW = infoWindow;
+
         this.map.setZoom(15);
         this.map.setCenter(mrker.getPosition() as google.maps.LatLng);
         console.log(mrker.getTitle())
@@ -120,6 +127,8 @@ export class AppComponent implements OnInit {
 
         google.maps.event.addListener(infoWindow,'domready',function(){
             $('#myInfoWinDiv').click(function() {
+
+                
                 console.log("The STKO works");
                 infoFuncO(infoWindow.getContent());
 
@@ -130,6 +139,7 @@ export class AppComponent implements OnInit {
         });
 
         infoWindow.open(this.map,mrker);
+        
       }
     })(infoWindow));
     
@@ -3354,6 +3364,11 @@ export class AppComponent implements OnInit {
 
       mrkerz.addListener("click", ((infoWindow) => { 
         return() =>{
+        
+        if (openIW!=null)
+            openIW.close();
+        openIW = infoWindow;
+
         this.map.setZoom(15);
         this.map.setCenter(mrkerz.getPosition() as google.maps.LatLng);
         console.log(mrkerz.getTitle())
@@ -3363,6 +3378,8 @@ export class AppComponent implements OnInit {
 
         google.maps.event.addListener(infoWindow,'domready',function(){
             $('#myInfoWinDiv').click(function() {
+
+                
                 console.log("The STKO works");
                 infoFuncO(infoWindow.getContent());
 
@@ -3372,7 +3389,9 @@ export class AppComponent implements OnInit {
             });
         });
 
+        
         infoWindow.open(this.map,mrkerz);
+        
       }
     })(infoWindow));
 
