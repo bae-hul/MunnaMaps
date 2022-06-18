@@ -1,13 +1,25 @@
 .it {
     color:aqua
 }
-mat-list
-{
-    background-color: black;
-}
 
 mat-paginator
 {
-    background-color: darkslategrey;
+    background-color: rgb(17,23,26);
     color: white
 }
+
+.example-card {
+    margin-bottom: 1px;
+    background-color: rgb(17,23,26);
+    color: aqua;
+  }
+
+mat-card{
+    height: 200px;
+    width: 1200px;
+}
+
+mat-card-content{
+    color: white;
+}
+  

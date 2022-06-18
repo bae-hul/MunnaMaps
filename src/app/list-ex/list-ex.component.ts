@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from "@angular/core";
 import { PageEvent } from "@angular/material/paginator";
 import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-list-ex',

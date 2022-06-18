@@ -1,12 +1,26 @@
-<h3>Entire Board Network</h3>
+<h2 style="margin:auto; text-align: center;">Entire Board Network</h2>
+
+<br>
 
 <mat-paginator [length]="ANL.length" pageSize=5
                (page)="getPaginatorData($event)" [pageSizeOptions]="[5, 10, 20]"
                showFirstLastButtons="false">
 </mat-paginator>
-<mat-list>
-    <mat-list-item *ngFor="let paper of (ANL | 
+<br>
+<mat-grid-list cols="1" rowHeight="200px" gutterSize="10px">
+    <mat-grid-tile *ngFor="let paper of (ANL | 
     slice: lowValue : highValue)">
-            <p class='it'> {{ paper.Name }}</p>
-    </mat-list-item>
-</mat-list>
+
+    <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{paper.Name}}</mat-card-title>
+          <mat-card-subtitle style="color:grey">Hoarding</mat-card-subtitle>
+          <img mat-card-md-image src="https://www.gematsu.com/wp-content/uploads/2022/01/FF7-25th-Logo_01-31-22_001.jpg">
+        </mat-card-title-group>
+        <mat-card-content>
+          This is test content
+        </mat-card-content>
+      </mat-card>
+
+    </mat-grid-tile>
+</mat-grid-list>
