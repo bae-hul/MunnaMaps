@@ -9,6 +9,8 @@ import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 import { faListAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
 
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-dialog-example',
   templateUrl: './dialog-example.component.html',
@@ -29,7 +31,7 @@ export class DialogExampleComponent implements OnInit {
   myListText = "Currently empty! Please click the 'Add to List' button for the boards of your choice to see them here and request a final quote!"
   myListTextDefault = "Currently empty! Please click the 'Add to List' button for the boards of your choice to see them here and request a final quote!";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {name: string}) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {name: string}, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.refreshSessionVar();
@@ -46,6 +48,7 @@ export class DialogExampleComponent implements OnInit {
       {
         this.myList.push(a);
         this.refreshSessionVar()
+        this.openAddSnackBar(a,a);
       }
   }
 
@@ -54,6 +57,7 @@ export class DialogExampleComponent implements OnInit {
     let index = this.myList.indexOf(a, 0);
     if (index > -1) {
       this.myList.splice(index, 1);
+      this.openDelSnackBar(a,a);
     }
     this.refreshSessionVar()
   }
@@ -86,6 +90,19 @@ export class DialogExampleComponent implements OnInit {
     this.refreshSessionVar();
   }
 
+  openAddSnackBar(message: string, action: string) {
+    let msg = message + " has been added to your list!";
+    this._snackBar.open(msg, 'Dismiss', {
+      duration: 3000
+    });
+  }
+
+  openDelSnackBar(message: string, action: string) {
+    let msg = message + " has been removed from your list!";
+    this._snackBar.open(msg, 'Dismiss', {
+      duration: 3000
+    });
+  }
   
 
 }

@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
   AllLists = [];
   AvailableLists = [];
   OccupiedLists = [];
+  AllNamesList = [];
 
   MyList = [];
   MyListDisplay: any;
@@ -3224,9 +3225,19 @@ export class AppComponent implements OnInit {
         {
           this.AvailableLists.push(this.jsonList[i]);
         }
+
+        //Changes to Sort Alpha
+        this.AllNamesList.push({Name:this.jsonList[i].Name, Photo:this.jsonList[i].Photo});
       }
 
     }
+
+    //Sort Alphabetically
+    this.AllNamesList.sort((a, b) => a.Name.localeCompare(b.Name));
+    sessionStorage.setItem('ANL',JSON.stringify(this.AllNamesList));
+
+    //console.log(this.AllNamesList);
+    console.log("Names: ", this.AllNamesList.length);
 
     console.log("All", this.AllLists.length);
     console.log("Available", this.AvailableLists.length);

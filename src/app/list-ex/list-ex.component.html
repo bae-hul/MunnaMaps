@@ -1,0 +1,12 @@
+<h3>Entire Board Network</h3>
+
+<mat-paginator [length]="ANL.length" pageSize=5
+               (page)="getPaginatorData($event)" [pageSizeOptions]="[5, 10, 20]"
+               showFirstLastButtons="false">
+</mat-paginator>
+<mat-list>
+    <mat-list-item *ngFor="let paper of (ANL | 
+    slice: lowValue : highValue)">
+            <p class='it'> {{ paper.Name }}</p>
+    </mat-list-item>
+</mat-list>

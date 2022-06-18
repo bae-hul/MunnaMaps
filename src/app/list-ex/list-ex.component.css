@@ -1,0 +1,13 @@
+.it {
+    color:aqua
+}
+mat-list
+{
+    background-color: black;
+}
+
+mat-paginator
+{
+    background-color: darkslategrey;
+    color: white
+}
