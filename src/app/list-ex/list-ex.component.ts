@@ -4,6 +4,12 @@ import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DialogExampleComponent } from '../dialog-example/dialog-example.component';
+
+var gdialog;
+var openIW = null;
+
 @Component({
   selector: 'app-list-ex',
   templateUrl: './list-ex.component.html',
@@ -11,7 +17,16 @@ import {MatGridListModule} from '@angular/material/grid-list';
 })
 export class ListExComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { gdialog = this.dialog; }
+
+  openDialog(dtext)
+    {
+        //let stext = dtext.substring(46, dtext.length-10)
+        console.log("Inside open diag");
+        gdialog.open(DialogExampleComponent,{
+            data: {name: dtext},
+        });
+    }
 
   ngOnInit(): void {
     this.ANL = JSON.parse(sessionStorage.getItem('ANL'));
@@ -34,6 +49,15 @@ export class ListExComponent implements OnInit {
 
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 770) ? 1 : 2;
+  }
+
+  onCardClick(data){
+    this.openDialog(data);
+  }
+
+  doThis()
+  {
+    console.log('kek');
   }
 
 }
