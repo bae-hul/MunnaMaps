@@ -16,10 +16,17 @@ mat-paginator
 
 mat-card{
     height: 200px;
-    width: 1200px;
+    width: 600px;
 }
 
 mat-card-content{
     color: white;
 }
+
+@media (max-width: 600px) {
+    mat-card {
+      min-width:17rem;
+    }
+  }
+
   

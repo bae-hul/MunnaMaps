@@ -15,12 +15,14 @@ export class ListExComponent implements OnInit {
 
   ngOnInit(): void {
     this.ANL = JSON.parse(sessionStorage.getItem('ANL'));
+    this.breakpoint = (window.innerWidth <= 770) ? 1 : 2;
   }
 
   ANL = JSON.parse(sessionStorage.getItem('ANL'));
+  breakpoint: any;
 
   lowValue: number = 0;
-  highValue: number = 5;
+  highValue: number = 6;
   
 
    // used to build a slice of papers relevant at any given time
@@ -28,6 +30,10 @@ export class ListExComponent implements OnInit {
     this.lowValue = event.pageIndex * event.pageSize;
     this.highValue = this.lowValue + event.pageSize;
     return event;
+  }
+
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 770) ? 1 : 2;
   }
 
 }

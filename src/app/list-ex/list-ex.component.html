@@ -3,11 +3,11 @@
 <br>
 
 <mat-paginator [length]="ANL.length" pageSize=5
-               (page)="getPaginatorData($event)" [pageSizeOptions]="[5, 10, 20]"
+               (page)="getPaginatorData($event)" [pageSizeOptions]="[6, 12, 24]"
                showFirstLastButtons="false">
 </mat-paginator>
 <br>
-<mat-grid-list cols="1" rowHeight="200px" gutterSize="10px">
+<mat-grid-list [cols]="breakpoint" rowHeight="200px" gutterSize="10px" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let paper of (ANL | 
     slice: lowValue : highValue)">
 
