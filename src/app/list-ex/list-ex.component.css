@@ -15,7 +15,7 @@ mat-paginator
   }
 
 mat-card{
-    height: 285px;
+    height: 200px;
     width: 600px;
 }
 
@@ -25,7 +25,7 @@ mat-card-content{
 
 @media (max-width: 600px) {
     mat-card {
-      min-width:17rem;
+      min-width:200px;
     }
   }
 
