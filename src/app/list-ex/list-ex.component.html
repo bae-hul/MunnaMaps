@@ -7,18 +7,16 @@
                showFirstLastButtons="false">
 </mat-paginator>
 <br>
-<mat-grid-list [cols]="breakpoint" rowHeight="200px" gutterSize="10px" (window:resize)="onResize($event)">
+<mat-grid-list [cols]="breakpoint" rowHeight="215px" gutterSize="10px" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let paper of (ANL | 
     slice: lowValue : highValue)">
 
     <mat-card class="example-card" (click)="onCardClick(paper.Name)">
-        <mat-card-title-group>
-          <mat-card-title>{{paper.Name}}</mat-card-title>
-          <mat-card-subtitle style="color:grey">Hoarding</mat-card-subtitle>
-          <img mat-card-lg-image src="https://www.gematsu.com/wp-content/uploads/2022/01/FF7-25th-Logo_01-31-22_001.jpg">
-          </mat-card-title-group>
-          <mat-card-content>
-            Size: 120x120
+          
+          <img mat-card-image src="https://www.gematsu.com/wp-content/uploads/2022/01/FF7-25th-Logo_01-31-22_001.jpg">
+          
+          <mat-card-content style="color:aqua">
+            {{paper.Name}}
           </mat-card-content>
         
       </mat-card>
