@@ -11,6 +11,11 @@ import { ThrowStmt } from '@angular/compiler';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
+import { AppService } from './app.service';
+
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
 
 var gdialog;
 var openIW = null;
@@ -22,7 +27,7 @@ var openIW = null;
 })
 export class AppComponent implements OnInit {
 
-    constructor(public dialog:MatDialog){gdialog = this.dialog;}
+    constructor(public dialog:MatDialog, private appService: AppService){gdialog = this.dialog;}
     //dialog: MatDialog;
     openDialog(dtext)
     {
@@ -67,6 +72,8 @@ export class AppComponent implements OnInit {
   visiblenum: number;
   //private _router: Subscription;
   //End of Vars
+
+  apires = '';
 
   ngOnInit(): void {
     this.myFunc();
@@ -167,11 +174,22 @@ export class AppComponent implements OnInit {
       console.log(data);
   }
   
+  destroy$: Subject <boolean> = new Subject <boolean>();
 
   async myFunc(){
     console.log("It Works.");
+
+    //Node JS API Changes
+    this.appService.getUsers().pipe(takeUntil(this.destroy$)).subscribe((users: '') => {
+        this.apires = users;
+        console.log("Done! -> "+this.apires);
+    });
+
+    console.log(this.apires);
+
     //Read Excel File
     await this.readmapfile();
+
   }
 
   // async readmapfile(){

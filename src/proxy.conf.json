@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://testmunnamaps.herokuapp.com",
+      "secure": true,
+      "changeOrigin": true
+    }
+}

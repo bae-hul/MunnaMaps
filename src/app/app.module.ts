@@ -19,6 +19,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 
+import { HttpClientModule } from '@angular/common/http';
+
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +43,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSnackBarModule,
     MatAutocompleteModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent, ListExComponent]
