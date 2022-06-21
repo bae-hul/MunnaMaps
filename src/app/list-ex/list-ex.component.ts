@@ -17,6 +17,8 @@ var openIW = null;
 })
 export class ListExComponent implements OnInit {
 
+  public sessionStorage = sessionStorage;
+
   constructor(public dialog:MatDialog) { gdialog = this.dialog; }
 
   openDialog(dtext)
@@ -29,11 +31,11 @@ export class ListExComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.ANL = JSON.parse(sessionStorage.getItem('ANL'));
+    //this.ANL = JSON.parse(sessionStorage.getItem('ANL'));
     this.breakpoint = (window.innerWidth <= 770) ? 1 : 2;
   }
 
-  ANL = JSON.parse(sessionStorage.getItem('ANL'));
+  //ANL = JSON.parse(sessionStorage.getItem('ANL'));
   breakpoint: any;
 
   lowValue: number = 0;

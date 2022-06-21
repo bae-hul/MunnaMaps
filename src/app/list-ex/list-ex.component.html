@@ -2,13 +2,13 @@
 
 <br>
 
-<mat-paginator [length]="ANL.length" pageSize=6
+<mat-paginator [length]="sessionStorage.getItem('ANL').length" pageSize=6
                (page)="getPaginatorData($event)" [pageSizeOptions]="[6, 12, 24]"
                showFirstLastButtons="false">
 </mat-paginator>
 <br>
 <mat-grid-list [cols]="breakpoint" rowHeight="215px" gutterSize="10px" (window:resize)="onResize($event)">
-    <mat-grid-tile *ngFor="let paper of (ANL | 
+    <mat-grid-tile *ngFor="let paper of (sessionStorage.getItem('ANL') | 
     slice: lowValue : highValue)">
 
     <mat-card class="example-card" (click)="onCardClick(paper.Name)">
