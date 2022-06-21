@@ -11,7 +11,7 @@ export class AppService {
   rootURL = "/api";
 
   getUsers() {
-    return this.http.get(this.rootURL + '/test');
+    return this.http.get('https://testmunnamaps.herokuapp.com/api' + '/test');
   }
 
   getMain() {
