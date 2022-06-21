@@ -38,4 +38,18 @@ mat-card-content{
     justify-content:right;
   }
 
+  ::ng-deep mat-option {
+    background: black !important;
+    color: white !important;
+  }
+  
+  ::ng-deep mat-option.mat-selected {
+    background: rgb(17,23,26) !important;
+    color: aqua !important;
+  }
+
+  ::ng-deep .mat-select-value {
+      color: aqua;
+  }
+
   

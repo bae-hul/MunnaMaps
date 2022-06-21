@@ -3,8 +3,8 @@
 <br>
 
 <mat-paginator [length]="this.ANL.length" pageSize=6
-               (page)="getPaginatorData($event)" [pageSizeOptions]="[6, 12, 24]"
-               showFirstLastButtons="false">
+               (page)="getPaginatorData($event)" [pageSizeOptions]="[6, 12, 24]" color="white" 
+               showFirstLastButtons="true">
 </mat-paginator>
 <br>
 <mat-grid-list [cols]="breakpoint" rowHeight="215px" gutterSize="10px" (window:resize)="onResize($event)">
