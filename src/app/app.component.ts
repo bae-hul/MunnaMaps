@@ -16,6 +16,8 @@ import { AppService } from './app.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
+import { CommonService } from './common/common-service';
+
 
 var gdialog;
 var openIW = null;
@@ -27,7 +29,7 @@ var openIW = null;
 })
 export class AppComponent implements OnInit {
 
-    constructor(public dialog:MatDialog, private appService: AppService){gdialog = this.dialog;}
+    constructor(public dialog:MatDialog, private appService: AppService, private Service: CommonService){gdialog = this.dialog;}
     //dialog: MatDialog;
     openDialog(dtext)
     {
@@ -36,6 +38,12 @@ export class AppComponent implements OnInit {
         gdialog.open(DialogExampleComponent,{
             data: {name: stext},
         });
+    }
+
+    sendMessage(): void {
+        // send message to subscribers via observable subject
+        this.Service.sendUpdate('Message from Sender Component to Receiver Component!');
+        console.log("Message Sent from Sender");
     }
 
   title = 'google-maps';
@@ -229,6 +237,7 @@ export class AppComponent implements OnInit {
   this.splitArrays();
   }
 
+
   splitArrays(){
     for (var i=0; i<this.jsonList.length; i++)
     {
@@ -253,6 +262,9 @@ export class AppComponent implements OnInit {
     //Sort Alphabetically
     this.AllNamesList.sort((a, b) => a.Name.localeCompare(b.Name));
     sessionStorage.setItem('ANL',JSON.stringify(this.AllNamesList));
+
+    //Send Message to Say Session Variable has been updated
+    this.sendMessage();
 
     //console.log(this.AllNamesList);
     console.log("Names: ", this.AllNamesList.length);

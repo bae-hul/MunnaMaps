@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { CommonService } from './common/common-service';
 
 @NgModule({
   declarations: [
